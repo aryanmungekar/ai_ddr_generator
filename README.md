@@ -54,12 +54,9 @@ Input Documents (Inspection + Thermal)
 ```
 project/
 │
-├── input/                  # Input reports
 ├── output/                 # Generated DDR reports
 ├── app.py                  # Main processing script
-├── report_generator.py     # DDR generation logic
 ├── templates/              # HTML templates
-├── static/                 # CSS / assets
 └── README.md
 ```
 
@@ -70,7 +67,7 @@ project/
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/your-username/ddr-generator.git
+git clone https://github.com/aryanmungekar/ddr-generator.git
 cd ddr-generator
 ```
 
@@ -133,11 +130,7 @@ The generated report includes:
 * Add support for multiple report formats
 * Integrate RAG for higher accuracy
 
----
 
-## 🎥 Demo
-
-👉 Loom Video: [Add your Loom link here]
 
 ---
 
