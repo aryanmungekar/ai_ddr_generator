@@ -138,7 +138,6 @@ background: rgba(0,0,0,0.7); justify-content:center; align-items:center;">
 </div>
 
 <script>
-
 const form = document.getElementById("uploadForm");
 const popup = document.getElementById("popup");
 const progressBar = document.getElementById("progressBar");
@@ -170,7 +169,15 @@ form.addEventListener("submit", async function(e) {
             body: formData
         });
 
-        const result = await response.json();
+        const text = await response.text();   // 👈 IMPORTANT
+        console.log("RAW RESPONSE:", text);   // 👈 DEBUG
+
+        let result;
+        try {
+            result = JSON.parse(text);
+        } catch {
+            throw new Error("Invalid JSON response");
+        }
 
         clearInterval(interval);
         progressBar.style.width = "100%";
@@ -179,19 +186,18 @@ form.addEventListener("submit", async function(e) {
             popupText.innerText = "✅ Report Generated!";
             downloadBtn.style.display = "block";
         } else {
-            popupText.innerText = "❌ Error generating report";
+            popupText.innerText = "❌ " + (result.error || "Unknown error");
         }
 
     } catch (err) {
-        popupText.innerText = "❌ Server Error";
+        console.error("ERROR:", err);
+        popupText.innerText = "❌ " + err.message;
     }
 });
 
 function downloadPDF() {
-    // 🔥 direct download
     window.location.href = "/download-pdf";
 }
-
 </script>
 
 </body>
