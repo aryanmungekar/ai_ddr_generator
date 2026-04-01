@@ -1,0 +1,5 @@
+flask
+gunicorn
+pymupdf
+reportlab
+google-generativeai
