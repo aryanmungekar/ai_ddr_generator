@@ -269,7 +269,7 @@ def index():
         prompt = generate_prompt(text1[:2000], text2[:1000])
 
         # ✅ Gemini correct usage
-        model = genai.GenerativeModel("gemini-2.5")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         res = model.generate_content(prompt)
 
         try:
