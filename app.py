@@ -5,9 +5,6 @@ from flask import Flask, render_template, request, jsonify, send_file
 from werkzeug.utils import secure_filename
 import google.generativeai as genai
 
-# OPTIONAL (for local only)
-from dotenv import load_dotenv
-load_dotenv()
 
 # REPORTLAB
 from reportlab.platypus import (
